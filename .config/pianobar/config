@@ -1,0 +1,5 @@
+user = !!
+password = !!
+autostart_station = !!
+fifo = /home/lutostag/.config/pianobar/ctl
+event_command = /home/lutostag/.config/pianobar/pianobar-notify.sh

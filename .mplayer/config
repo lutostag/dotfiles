@@ -1,0 +1,5 @@
+# Write your default config options here!
+ao=alsa
+vo=xv
+really-quiet=1
+framedrop=1
