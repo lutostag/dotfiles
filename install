@@ -1,0 +1,26 @@
+#!/bin/sh
+
+DIR=$(dirname $(readlink -f $0))
+
+which stow >/dev/null
+if [ ! $? ]; then
+    echo "Please install stow to use this script to install these dotfiles"
+    exit 1
+fi
+
+which git >/dev/null
+if [ ! $? ]; then
+    echo "Please install git to use this script to install the dotfiles"
+    exit 1
+fi
+
+git submodule update --init --recursive
+# git submodule foreach --recursive git pull origin master
+
+ls -1d $DIR/*/ | while read store; do
+    program=$(basename $store)
+    which $program >/dev/null &&
+    stow --dir="$DIR" --target="$HOME" $program 2>/dev/null &&
+    echo "$program dotfiles installed" ||
+    echo "$program is not installed, so not installing dotfiles"
+done
