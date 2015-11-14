@@ -1,0 +1,19 @@
+#!/bin/sh
+
+autorandr --default default -c &
+killall compton; compton &
+killall xbindkeys; xbindkeys
+flock -n /var/lock/auscult -c '/home/lutostag/src/go/auscult/auscult -p one' &
+flock -n /var/lock/batti -c '/opt/batti-0.3.8/batti' &
+flock -n /var/lock/blueman -c 'blueman-applet' &
+flock -n /var/lock/nm-applet -c 'nm-applet' &
+flock -n /var/lock/pnmixer -c 'pnmixer' &
+flock -n /var/lock/redshift -c 'gtk-redshift -l +30:-97' &
+flock -n /var/lock/tomate -c 'tomate' &
+flock -n /var/lock/variety -c '/opt/extras.ubuntu.com/variety/bin/variety' &
+xmodmap -e 'pointer = 1 25 3 4 5 6 7 8 9'
+autocutsel -fs PRIMARY
+autocutsel -f
+setxkbmap -option ctrl:nocaps
+/home/lutostag/.config/.xinput
+# flock -n /var/lock/vlc_server -c 'vlc --extraintf=luahttp --fullscreen --qt-start-minimized'

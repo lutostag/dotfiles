@@ -1,0 +1,133 @@
+# For the benefit of emacs users: -*- shell-script -*-
+###########################
+# xbindkeys configuration #
+###########################
+#
+# Version: 1.8.5
+#
+# If you edit this file, do not forget to uncomment any lines
+# that you change.
+# The pound(#) symbol may be used anywhere for comments.
+#
+# To specify a key, you can use 'xbindkeys --key' or
+# 'xbindkeys --multikey' and put one of the two lines in this file.
+#
+# The format of a command line is:
+#    "command to start"
+#       associated key
+#
+#
+# A list of keys is in /usr/include/X11/keysym.h and in
+# /usr/include/X11/keysymdef.h
+# The XK_ is not needed.
+#
+# List of modifier:
+#   Release, Control, Shift, Mod1 (Alt), Mod2 (NumLock),
+#   Mod3 (CapsLock), Mod4, Mod5 (Scroll).
+#
+
+# The release modifier is not a standard X modifier, but you can
+# use it if you want to catch release events instead of press events
+
+# By defaults, xbindkeys does not pay attention with the modifiers
+# NumLock, CapsLock and ScrollLock.
+# Uncomment the lines above if you want to pay attention to them.
+
+#keystate_numlock = enable
+#keystate_capslock = enable
+#keystate_scrolllock= enable
+
+# Examples of commands:
+
+"pactl -- set-sink-mute 0 toggle; pactl -- set-sink-mute 1 toggle"
+    m:0x0 + c:121
+    XF86AudioMute
+"pactl -- set-sink-volume 0 -5%; pactl -- set-sink-volume 1 -5%"
+    m:0x0 + c:122
+    XF86AudioLowerVolume
+"pactl -- set-sink-volume 0 +5%; pactl -- set-sink-volume 1 +5%"
+    m:0x0 + c:123
+    XF86AudioRaiseVolume
+"pactl -- set-source-mute 0 toggle; pactl -- set-source-mute 1 toggle; pactl -- set-source-mute 2 toggle"
+    m:0x0 + c:198
+    XF86AudioMicMute
+
+"mmmk select"
+    m:0x0 + c:179
+    XF86Tools  
+"mmmk play"
+    m:0x44 + c:111
+    Control+Mod4 + Up
+"mmmk play"
+    m:0x0 + c:172
+    XF86AudioPlay
+"mmmk stop"
+    m:0x44 + c:116
+    Control+Mod4 + Down
+"mmmk stop"
+    m:0x0 + c:174
+    XF86AudioStop
+"mmmk next"
+    m:0x44 + c:114
+    Control+Mod4 + Right
+"mmmk next"
+    m:0x0 + c:171
+    XF86AudioNext
+"mmmk prev"
+    m:0x44 + c:113
+    Control+Mod4 + Left
+"mmmk prev"
+    m:0x0 + c:173
+    XF86AudioPrev
+"mmmk love"     
+    m:0x44 + c:112      
+    Control+Mod4 + Prior
+"mmmk hate"    
+    m:0x44 + c:117     
+    Control+Mod4 + Next
+"mmmk choose"        
+    m:0x44 + c:179
+    Control+Mod4 + XF86Tools        
+
+
+"flock -n /var/lock/lock -c 'xset +dpms; xset dpms 0 0 1; i3lock -n -c 000000; xset -dpms'"
+    m:0x40 + c:32
+    Mod4 + o
+
+"xbacklight -dec 10"
+    m:0x0 + c:232
+    XF86MonBrightnessDown
+"xbacklight -inc 10"
+    m:0x0 + c:233
+    XF86MonBrightnessUp
+
+"xinput --list 'ELAN Touchscreen' | grep -q disabled && xinput enable 'ELAN Touchscreen' || xinput disable 'ELAN Touchscreen'"
+    m:0x40 + c:33
+    Mod4 + p
+
+# set directly keycode (here control + f with my keyboard)
+#"xterm"
+#  c:41 + m:0x4
+
+# specify a mouse button
+#"xterm"
+#  control + b:2
+
+#"xterm -geom 50x20+20+20"
+#   Shift+Mod2+alt + s
+#
+## set directly keycode (here control+alt+mod2 + f with my keyboard)
+#"xterm"
+#  alt + c:0x29 + m:4 + mod2
+#
+## Control+Shift+a  release event starts rxvt
+#"rxvt"
+#  release+control+shift + a
+#
+## Control + mouse button 2 release event starts rxvt
+#"rxvt"
+#  Control + b:2 + Release
+
+##################################
+# End of xbindkeys configuration #
+##################################

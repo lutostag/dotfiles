@@ -1,0 +1,31 @@
+[submodule "vim/.config/vim/bundle/vim-autoswap"]
+	path = vim/.config/vim/bundle/vim-autoswap
+	url = https://github.com/gioele/vim-autoswap.git
+[submodule "vim/.config/vim/bundle/patchreview-vim"]
+	path = vim/.config/vim/bundle/patchreview-vim
+	url = https://github.com/lutostag/patchreview-vim.git
+	branch = bzr-fix
+[submodule "vim/.config/vim/bundle/vcscommand"]
+	path = vim/.config/vim/bundle/vcscommand
+	url = git://repo.or.cz/vcscommand
+[submodule "vim/.config/vim/bundle/vim-dirdiff"]
+	path = vim/.config/vim/bundle/vim-dirdiff
+	url = https://github.com/junkblocker/vim-dirdiff.git
+[submodule "vim/.config/vim/bundle/vim-dispatch"]
+	path = vim/.config/vim/bundle/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule "vim/.config/vim/bundle/vim-fugitive"]
+	path = vim/.config/vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/.config/vim/bundle/vim-rsi"]
+	path = vim/.config/vim/bundle/vim-rsi
+	url = https://github.com/tpope/vim-rsi.git
+[submodule "vim/.config/vim/bundle/vim-virtualenv"]
+	path = vim/.config/vim/bundle/vim-virtualenv
+	url = https://github.com/jmcantrell/vim-virtualenv.git
+[submodule "zsh/.config/z"]
+	path = zsh/.config/z
+	url = https://github.com/rupa/z.git
+[submodule "zsh/.config/lxc-cmd"]
+	path = zsh/.config/lxc-cmd
+	url = https://github.com/lutostag/lxc-cmd.git

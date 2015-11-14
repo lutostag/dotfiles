@@ -1,0 +1,4 @@
+set-option -qg prefix2 C-b
+set-option -qg status-bg blue
+bind-key C-o set-option -qg prefix C-b \; set-option -qg status-bg black \; bind-key -n C-o send-keys C-o \; bind-key C-b source-file ~/.tmux.conf 
+set -qg status-left "#{?client_prefix,#[bg=green],#[bg=blue]}#[fg=black][#S]"

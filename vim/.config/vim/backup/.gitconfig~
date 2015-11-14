@@ -1,0 +1,6 @@
+[user]
+    name = Greg Lutostanski
+    email = gregory.lutostanski@canonical.com
+
+[url "git+ssh://USER@git.launchpad.net/"]
+    insteadof = lp:

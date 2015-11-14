@@ -1,0 +1,14 @@
+defaults
+auth             on
+tls              on
+tls_trust_file   /usr/share/ca-certificates/mozilla/Thawte_Premium_Server_CA.crt
+
+account        canonical
+host           smtp.gmail.com
+port           587
+from           gregory.lutostanski@canonical.com
+user           gregory.lutostanski@canonical.com
+password       RaS0feM2aipaebi
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+account default : canonical
