@@ -1,8 +1,0 @@
-#!/bin/sh
-
-synclient ClickFinger3=2
-synclient TapButton3=2
-synclient TapButton1=0
-synclient ClickPad=1
-
-xinput disable 'ELAN Touchscreen'
