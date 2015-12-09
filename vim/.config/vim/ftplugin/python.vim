@@ -1,5 +1,5 @@
 compiler pylint
-setlocal omnifunc=pythoncomplete#Complete
+" setlocal omnifunc=pythoncomplete#Complete
 setlocal colorcolumn=80
 
 if exists("g:did_python_ftplugin")
@@ -83,5 +83,3 @@ endif
 
 nnoremap <buffer> % :call PyJump("")<Enter>
 vnoremap <buffer> % omao<Esc>:call PyJump(visualmode())<Enter>
-
-

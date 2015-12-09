@@ -28,3 +28,9 @@
 [submodule "vim/.config/vim/bundle/patchreview-vim"]
 	path = vim/.config/vim/bundle/patchreview-vim
 	url = https://github.com/junkblocker/patchreview-vim.git
+[submodule "vim/.config/vim/bundle/jedi-vim"]
+	path = vim/.config/vim/bundle/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "vim/.config/vim/bundle/grep"]
+	path = vim/.config/vim/bundle/grep
+	url = https://github.com/yegappan/grep.git

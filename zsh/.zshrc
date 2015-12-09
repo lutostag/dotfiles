@@ -21,7 +21,7 @@ export GOPATH=~/src/go
 if [ -z $SETPATH ]
 then
     export PATH=$PATH:$GOPATH/bin
-    export PYTHONPATH=$PYTHONPATH:~/src/python:.
+    export PYTHONPATH=$(ls -1d ~/work/src/*/*/trunk/ | tr '\n' ':')
     export PYTHONDONTWRITEBYTECODE=True
     export SETPATH=1
 fi
@@ -34,28 +34,11 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-export AUTOSSH_POLL=60
+export AUTOSSH_PORT=0
 
 stty stop undef
 stty start undef
 ssh-add ~/.ssh/id_rsa 2>/dev/null
-
-hcolor=$(($(printf '%d' "0x$(hostname | md5sum | sed 's/\(.\{8\}\).*/\1/')") % 256))
-ucolor=$(($(printf '%d' "0x$(whoami | md5sum | sed 's/\(.\{8\}\).*/\1/')") % 256))
-if [ $(hostname) == "cia" ]; then
-    hcolor='blue'
-elif [ $(hostname) == "fbi" ]; then
-    hcolor='green'
-fi
-if [ $(whoami) == "lutostag" ]; then
-    ucolor='green'
-elif [ $(whoami) == "ubuntu" ]; then
-    ucolor='red'
-elif [ $(whoami) == "root" ]; then
-    ucolor='yellow'
-fi
-PROMPT_VALUE="%{%F{$ucolor}%B%}%n%{%b$reset_color%}@%F{$hcolor}%{%B%}%M%f%{%b$reset_color%}:%{$fg[yellow]%B%}%~%{%b$reset_color%}"
-PROMPT="${PROMPT_VALUE}$ "
 
 source ~/.config/z/z.sh 2>/dev/null
 source ~/.config/lxc-cmd/lxc-cmd.sh 2>/dev/null
@@ -78,7 +61,7 @@ function ssh {
         found=0
         tmux list-panes -aF '#{pane_current_command} #{pane_tty}' | grep ssh | awk '{print $2}' |
         while read x; do lsof -t $x; done |
-        while read y; do cat /proc/$y/cmdline | tr "\0" "\n" | grep -qxF "$@" && ls -l /proc/$y/fd/ | grep -o --color=never "/dev/pts/[0-9]*"; done | sort -u |
+        while read y; do cat /proc/$y/cmdline | tr "\0" "\n" | grep -qxF "$@" && ls -l /proc/$y/fd/ | grep -o "/dev/pts/[0-9]*"; done | sort -u |
         while read z;
             do tmux select-pane -t $(tmux list-panes -aF '#{pane_tty} #{pane_id}' | grep "$z" | awk '{print $2}') 2>/dev/null &&
             tmux select-window -t $(tmux list-panes -aF '#{pane_tty} #{window_id}' | grep "$z" | awk '{print $2}') &&
@@ -130,17 +113,32 @@ alias ranger='ranger-cd'
 alias ls='ls -X --group-directories-first --color=auto'
 alias zmv='noglob zmv -W'
 alias include_tags='ctags -f ~/.cache/ctags/include -R /usr/include'
-alias tag='ctags -f ~/.cache/ctags/src -R ~/work/oil/src'
-alias grep='grep --color=always'
-alias agenda='gcalcli --nolineart --detail_all --detail_url short agenda 12:01am 11:59pm | less -R~'
-alias agendaw='gcalcli --nolineart --detail_all --detail_url short agenda 12:01am saturday | less -R'
+alias tag='mkdir -p ~/.cache/ctags; ctags -f ~/.cache/ctags/src -R ~/work/src/*/*/trunk'
+alias grep='grep --color=auto'
 alias cmu='sshfs home:/media/External/Music/ccmixter ~/music/ccmixter 2>/dev/null; cmus'
 alias irc='auscult -a 127.0.0.1:1234 2>/dev/null & tmux rename-window irc; ssh home -R 127.0.0.1:1234:127.0.0.1:1234 -t "TERM=screen-256color; tmux -q2u attach -t irc || tmux -2u new-session -s irc irssi"; tmux set-window-option -q automatic-rename "on" >/dev/null'
 alias transmission='ssh home -t "bash -ic transmission"'
 alias update='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get autoremove'
-alias top='htop'
+alias top='htop 2>/dev/null || top'
 alias ipy='ipython --no-banner --no-confirm-exit'
 
+
+hcolor=$(($(printf '%d' "0x$(hostname | md5sum | sed 's/\(.\{8\}\).*/\1/')") % 256))
+ucolor=$(($(printf '%d' "0x$(whoami | md5sum | sed 's/\(.\{8\}\).*/\1/')") % 256))
+if [ $(hostname) == "cia" ]; then
+    hcolor='blue'
+elif [ $(hostname) == "fbi" ]; then
+    hcolor='green'
+fi
+if [ $(whoami) == "lutostag" ]; then
+    ucolor='green'
+elif [ $(whoami) == "ubuntu" ]; then
+    ucolor='red'
+elif [ $(whoami) == "root" ]; then
+    ucolor='yellow'
+fi
+PROMPT_VALUE="%{%F{$ucolor}%B%}%n%{%b$reset_color%}@%F{$hcolor}%{%B%}%M%f%{%b$reset_color%}:%{$fg[yellow]%B%}%~%{%b$reset_color%}"
+PROMPT="${PROMPT_VALUE}$ "
 
 [[ $hcolor =~ "^[0-9]+$" ]] && hcolor=colour${hcolor}
 [[ $ucolor =~ "^[0-9]+$" ]] && ucolor=colour${ucolor}
