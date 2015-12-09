@@ -1,10 +1,6 @@
 [submodule "vim/.config/vim/bundle/vim-autoswap"]
 	path = vim/.config/vim/bundle/vim-autoswap
 	url = https://github.com/gioele/vim-autoswap.git
-[submodule "vim/.config/vim/bundle/patchreview-vim"]
-	path = vim/.config/vim/bundle/patchreview-vim
-	url = https://github.com/lutostag/patchreview-vim.git
-	branch = bzr-fix
 [submodule "vim/.config/vim/bundle/vcscommand"]
 	path = vim/.config/vim/bundle/vcscommand
 	url = git://repo.or.cz/vcscommand
@@ -29,3 +25,6 @@
 [submodule "zsh/.config/lxc-cmd"]
 	path = zsh/.config/lxc-cmd
 	url = https://github.com/lutostag/lxc-cmd.git
+[submodule "vim/.config/vim/bundle/patchreview-vim"]
+	path = vim/.config/vim/bundle/patchreview-vim
+	url = https://github.com/junkblocker/patchreview-vim.git
