@@ -21,7 +21,7 @@ export GOPATH=~/src/go
 if [ -z $SETPATH ]
 then
     export PATH=$PATH:$GOPATH/bin
-    export PYTHONPATH=$(ls -1d ~/work/src/*/*/trunk/ | tr '\n' ':')
+    export PYTHONPATH=$(ls -1d ~/work/src/*/*/trunk/ 2>/dev/null | tr '\n' ':')
     export PYTHONDONTWRITEBYTECODE=True
     export SETPATH=1
 fi
@@ -40,6 +40,7 @@ stty stop undef
 stty start undef
 ssh-add ~/.ssh/id_rsa 2>/dev/null
 
+touch ~/.z
 source ~/.config/z/z.sh 2>/dev/null
 source ~/.config/lxc-cmd/lxc-cmd.sh 2>/dev/null
 
