@@ -20,7 +20,12 @@ git submodule update --init --recursive
 ls -1d $DIR/*/ | while read store; do
     program=$(basename $store)
     which $program >/dev/null &&
-    stow --dir="$DIR" --target="$HOME" $program 2>/dev/null &&
+    stow --dir="$DIR" --target="$HOME" --ignore="^install" $program 2>/dev/null &&
+    if [ -x $program/install ]
+    then
+        ./$program/install >/dev/null 2>/dev/null ||
+        echo "$program install script failed"
+    fi &&
     echo "$program dotfiles installed" ||
     echo "$program is not installed, so not installing dotfiles"
 done

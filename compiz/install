@@ -1,0 +1,17 @@
+#!/usr/bin/python
+
+import compizconfig
+import os
+
+SETTINGS_FILE = '../.data/compiz.profile'
+
+
+def main():
+    context = compizconfig.Context()
+    context.Import(
+        os.path.abspath(os.path.join(os.path.dirname(__file__), SETTINGS_FILE))
+    )
+
+
+if __name__ == '__main__':
+    main()
