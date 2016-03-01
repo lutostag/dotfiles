@@ -9,7 +9,8 @@ SETTINGS_FILE = '../.data/compiz.profile'
 def main():
     context = compizconfig.Context()
     context.Import(
-        os.path.abspath(os.path.join(os.path.dirname(__file__), SETTINGS_FILE))
+        os.path.abspath(os.path.join(os.path.dirname(__file__), SETTINGS_FILE)),
+        True
     )
 
 
