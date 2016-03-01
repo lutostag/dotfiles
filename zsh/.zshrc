@@ -118,7 +118,7 @@ alias tag='mkdir -p ~/.cache/ctags; ctags -f ~/.cache/ctags/src -R ~/work/src/*/
 alias grep='grep --color=auto'
 alias cmu='sshfs home:/media/External/Music/ccmixter ~/music/ccmixter 2>/dev/null; cmus'
 alias irc='auscult -a 127.0.0.1:1234 2>/dev/null & tmux rename-window irc; ssh home -R 127.0.0.1:1234:127.0.0.1:1234 -t "TERM=screen-256color; tmux -q2u attach -t irc || tmux -2u new-session -s irc irssi"; tmux set-window-option -q automatic-rename "on" >/dev/null'
-alias transmission='ssh home -t "bash -ic transmission"'
+alias transmission='ssh home -t "bash -ic transmission" || bash -ic transmission'
 alias update='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get autoremove'
 alias top='htop 2>/dev/null || top'
 alias ipy='ipython --no-banner --no-confirm-exit'
