@@ -11,3 +11,5 @@
     insteadof = lp:
 [url "https://lutostag@github.com/"]
     insteadof = https://github.com/
+[push]
+	default = simple
