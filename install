@@ -15,7 +15,7 @@ if [ ! $? ]; then
 fi
 
 git submodule update --init --recursive
-# git submodule foreach --recursive git pull origin master
+# git submodule update --init && git submodule foreach git pull origin master
 
 ls -1d $DIR/*/ | while read store; do
     program=$(basename $store)
