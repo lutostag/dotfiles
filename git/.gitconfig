@@ -3,13 +3,17 @@
     email = gregory.lutostanski@canonical.com
 [alias]
     graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit --date=relative --all
+    diffc = diff --cached
+    co = checkout
+    st = status
+    discard = checkout --
 [color]
     ui = true
 [log]
     decorate = full
 [url "git+ssh://lutostag@git.launchpad.net/"]
     insteadof = lp:
-[url "https://lutostag@github.com/"]
+[url "git@github.com:"]
     insteadof = https://github.com/
 [push]
-	default = simple
+    default = simple

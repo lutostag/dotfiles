@@ -71,4 +71,4 @@ else
 endif " has("autocmd")
 
 vmap <C-c> y:call system("xclip -i -selection clipboard",getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
-nmap <C-b> <C-o>
+nmap <C-y> <C-o>

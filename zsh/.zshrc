@@ -109,7 +109,8 @@ function browse-or-vim() {
     fi
 }
 
-alias -g today='date +%F'
+alias -g today='$(date +%F)'
+alias g='git'
 alias vi='browse-or-vim'
 alias ranger='ranger-cd'
 alias ls='ls -X --group-directories-first --color=auto'
