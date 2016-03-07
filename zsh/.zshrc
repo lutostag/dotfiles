@@ -105,7 +105,7 @@ function browse-or-vim() {
     then
         ranger $@
     else
-        vim $@
+        nvim $@ 2>/dev/null || vim $@
     fi
 }
 
