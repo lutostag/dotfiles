@@ -97,6 +97,8 @@ function work-autocomplete {
     reply=( $(ls -1 ~/.virtualenvs) )
 }
 
+compctl -K work-autocomplete work
+
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
 
