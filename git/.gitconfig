@@ -7,6 +7,7 @@
     co = checkout
     st = status
     discard = checkout --
+    unstage = reset HEAD
 [color]
     ui = true
 [log]
