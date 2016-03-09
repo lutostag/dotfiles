@@ -18,7 +18,7 @@ set smartcase
 set tabstop=8
 set softtabstop=4
 set shiftwidth=4
-set statusline=[FILE=%f]%r%h%w%=\ [TYPE=%Y]\ \ \ [POS=%03l(%L),%03v]\ \ \ [%p%%]
+set statusline=[FILE=%f]%r%h%w%=\ %{fugitive#statusline()}\ \ \ [TYPE=%Y]\ \ \ [POS=%03l(%L),%03v]\ \ \ [%p%%]
 set laststatus=2
 set completeopt-=preview
 " set omnifunc=syntaxcomplete#Complete
