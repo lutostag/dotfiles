@@ -1,3 +1,7 @@
+set nocompatible
+
+set undofile                " Save undo's after file closes
+set undodir=$HOME/.config/nvim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
@@ -35,7 +39,7 @@ let g:jedi#completions_command = "<C-n>"
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
   syntax on
-  " set t_Co=256
+  set t_Co=256
   colorscheme lettuce
   set hlsearch
 endif

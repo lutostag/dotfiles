@@ -25,7 +25,7 @@ set smartcase
 set tabstop=8
 set softtabstop=4
 set shiftwidth=4
-set statusline=[FILE=%f]%r%h%w%=\ [TYPE=%Y]\ \ \ [POS=%03l(%L),%03v]\ \ \ [%p%%]
+set statusline=[FILE=%f]%r%h%w%=\ %{fugitive#statusline()}\ \ \ [TYPE=%Y]\ \ \ [POS=%03l(%L),%03v]\ \ \ [%p%%]
 set laststatus=2
 set completeopt-=preview
 " set omnifunc=syntaxcomplete#Complete
@@ -34,7 +34,7 @@ set switchbuf=useopen
 set nofoldenable
 
 let g:autoswap_detect_tmux = 1
-let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git"
+let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,.bzr"
 let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 2
 let g:jedi#completions_command = "<C-n>"
