@@ -34,3 +34,6 @@
 [submodule "vim/.config/vim/bundle/grep"]
 	path = vim/.config/vim/bundle/grep
 	url = https://github.com/yegappan/grep.git
+[submodule "vim/.config/vim/bundle/syntastic"]
+	path = vim/.config/vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
