@@ -131,23 +131,23 @@ alias ipy='ipython --no-banner --no-confirm-exit'
 hcolor=$(($(printf '%d' "0x$(hostname | md5sum | sed 's/\(.\{8\}\).*/\1/')") % 256))
 ucolor=$(($(printf '%d' "0x$(whoami | md5sum | sed 's/\(.\{8\}\).*/\1/')") % 256))
 if [ $(hostname) == "cia" ]; then
-    hcolor='blue'
+    hcolor='4' # blue
 elif [ $(hostname) == "fbi" ]; then
-    hcolor='green'
+    hcolor='2' # green
 fi
 if [ $(whoami) == "lutostag" ]; then
-    ucolor='green'
+    ucolor='2' # green
 elif [ $(whoami) == "ubuntu" ]; then
-    ucolor='red'
+    ucolor='1' # red
 elif [ $(whoami) == "root" ]; then
-    ucolor='yellow'
+    ucolor='3' # yellow
 fi
 PROMPT_VALUE="%{%F{$ucolor}%B%}%n%{%b$reset_color%}@%F{$hcolor}%{%B%}%M%f%{%b$reset_color%}:%{$fg[yellow]%B%}%~%{%b$reset_color%}"
 PROMPT="${PROMPT_VALUE}$ "
 
+[[ $ucolor == $hcolor ]] && ucolor=$((($hcolor + 1) % 256))
 [[ $hcolor =~ "^[0-9]+$" ]] && hcolor=colour${hcolor}
 [[ $ucolor =~ "^[0-9]+$" ]] && ucolor=colour${ucolor}
-[[ $ucolor == $hcolor ]] && ucolor=red
 
 cat > ~/.tmux.extra.conf <<EOF
 set-option -qg status-bg $hcolor
