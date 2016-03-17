@@ -112,6 +112,7 @@ function browse-or-vim() {
 }
 
 alias -g today='$(date +%F)'
+alias b='bzr'
 alias g='git'
 alias vi='browse-or-vim'
 alias ranger='ranger-cd'
