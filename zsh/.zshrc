@@ -128,7 +128,9 @@ alias update='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-u
 alias top='htop 2>/dev/null || top'
 alias ipy='ipython --no-banner --no-confirm-exit'
 alias usshfs='for host in $(grep "Host " ~/.ssh/config | cut -d " " -f 2); do fusermount -u /tmp/sshfs/$host 2>/dev/null; unlink $host 2>/dev/null; rmdir /tmp/sshfs/$host 2>/dev/null; done'
-alias msshfs='usshfs; mkdir -p /tmp/sshfs; for host in $(grep "Host " ~/.ssh/config | cut -d " " -f 2); do mkdir /tmp/sshfs/$host; ( sshfs $host: /tmp/sshfs/$host 2>/dev/null & ); ln -s /tmp/sshfs/$host $host; done'
+alias msshfs='usshfs; mkdir -p /tmp/sshfs; for host in $(grep "Host " ~/.ssh/config | cut -d " " -f 2); do mkdir -p /tmp/sshfs/$host; ( ( sshfs $host: /tmp/sshfs/$host 2>/dev/null && ln -s /tmp/sshfs/$host $host ) & ); done'
+alias rscp='rsync -avz --partial --progress -e ssh'
+alias reconnect='killall -HUP autossh'
 
 
 hcolor=$(($(printf '%d' "0x$(hostname | md5sum | sed 's/\(.\{8\}\).*/\1/')") % 256))
