@@ -40,6 +40,6 @@ function! Pylint(writing)
     silent Make!
 endfunction
 
-au BufWritePre * :%s/\s\+$//e
-au BufWritePost * :call Pylint(1)
+" au BufWritePre * :%s/\s\+$//e
+" au BufWritePost * :call Pylint(1)
 call Pylint(1)

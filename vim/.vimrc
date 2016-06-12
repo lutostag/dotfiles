@@ -51,7 +51,10 @@ let g:syntastic_check_on_wq = 0
 if &t_Co > 2 || has("gui_running")
   syntax on
   set t_Co=256
-  colorscheme lettuce
+  let g:rehash256 = 1
+  colorscheme molokai
+  hi Normal guibg=None ctermbg=None ctermfg=white
+  hi NonText guibg=None ctermbg=None
   set hlsearch
 endif
 

@@ -42,7 +42,7 @@ ssh-add ~/.ssh/id_rsa 2>/dev/null
 
 touch ~/.z
 source ~/.config/z/z.sh 2>/dev/null
-# source ~/.config/lxc-cmd/lxc-cmd.sh 2>/dev/null
+source ~/src/lxd-cmd/lxd-cmd.sh 2>/dev/null
 source ~/.config/git_prompt.zsh 2>/dev/null
 
 function mk {
@@ -57,7 +57,13 @@ function man {
     $MAN_EXEC -l $($MAN_EXEC -w $@)
 }
 
+function pig {
+    args=("$@")
+    $args | pygmentize -O bg=dark,style=monokai -f terminal256 -l $(pygmentize -N "$args") -- | less -R
+}
+
 function ssh {
+    lxd-ssh
     if [ "$#" == "1" ];
     then
         found=0
@@ -112,6 +118,7 @@ function browse-or-vim() {
 }
 
 alias -g today='$(date +%F)'
+alias p='pig '
 alias b='bzr'
 alias g='git'
 alias vi='browse-or-vim'
@@ -124,7 +131,7 @@ alias grep='grep --color=auto'
 alias cmu='sshfs home:/media/External/Music/ccmixter ~/music/ccmixter 2>/dev/null; cmus'
 alias irc='auscult -a 127.0.0.1:1234 2>/dev/null & tmux rename-window irc; ssh home -R 127.0.0.1:1234:127.0.0.1:1234 -t "TERM=screen-256color; tmux -q2u attach -t irc || tmux -2u new-session -s irc irssi"; tmux set-window-option -q automatic-rename "on" >/dev/null'
 alias transmission='ssh home -t "bash -ic transmission" || bash -ic transmission'
-alias update='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get autoremove'
+alias update='sudo apt update && sudo apt dist-upgrade && sudo apt autoremove'
 alias top='htop 2>/dev/null || top'
 alias ipy='ipython --no-banner --no-confirm-exit'
 alias usshfs='for host in $(grep "Host " ~/.ssh/config | cut -d " " -f 2); do fusermount -u /tmp/sshfs/$host 2>/dev/null; unlink $host 2>/dev/null; rmdir /tmp/sshfs/$host 2>/dev/null; done'
