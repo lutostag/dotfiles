@@ -5,6 +5,7 @@
     graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit --date=relative --all
     diffc = diff --cached
     last = log -1 HEAD
+    l = log
     co = checkout
     st = status
     discard = checkout --

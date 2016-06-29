@@ -4,6 +4,7 @@ SAVEHIST=1000000
 setopt appendhistory sharehistory histignoredups histignorespace extendedhistory extendedglob notify promptsubst interactivecomments noflowcontrol autopushd pushdignoredups pushdsilent automenu listpacked cshjunkieloops autocd
 unsetopt beep nomatch
 bindkey -e
+disable -p '#'
 
 zstyle :compinstall filename '/home/lutostag/.zshrc'
 
@@ -59,7 +60,12 @@ function man {
 
 function pig {
     args=("$@")
-    $args | pygmentize -O bg=dark,style=monokai -f terminal256 -l $(pygmentize -N "$args") -- | less -R
+    lexer=$(pygmentize -N "$args")
+    if [ "$lexer" == "text" ];
+    then
+        echo "$args" | grep -q 'diff' && lexer="diff"
+    fi
+    $args | pygmentize -O bg=dark,style=monokai -f terminal256 -l $lexer -- 2>/dev/null | less -FRX
 }
 
 function ssh {
@@ -103,6 +109,16 @@ function work-autocomplete {
     reply=( $(ls -1 ~/.virtualenvs) )
 }
 
+alias ls='ls -xFX --group-directories-first --color=auto' # -C
+
+function chpwd() {
+start=$'\E[101m'
+finish=$'\E[0m'
+    emulate -L zsh
+    ls -xw $(($(tput cols) - 1)) --color=always | sed -n '1h; 2H; 3{x; s/^\(.*\)$/\1 '"$start…$finish"'/; p; q}; ${x; p}'
+    # print -S " $(echo \# $(pwd))"
+}
+
 compctl -K work-autocomplete work
 
 bindkey '^R' history-incremental-pattern-search-backward
@@ -121,9 +137,9 @@ alias -g today='$(date +%F)'
 alias p='pig '
 alias b='bzr'
 alias g='git'
+alias dirs='dirs -v'
 alias vi='browse-or-vim'
 alias ranger='ranger-cd'
-alias ls='ls -X --group-directories-first --color=auto'
 alias zmv='noglob zmv -W'
 alias include_tags='ctags -f ~/.cache/ctags/include -R /usr/include'
 alias tag='mkdir -p ~/.cache/ctags; ctags -f ~/.cache/ctags/src -R ~/work/src/*/*/trunk'
