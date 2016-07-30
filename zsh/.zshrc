@@ -150,6 +150,7 @@ alias transmission='ssh home -t "bash -ic transmission" || bash -ic transmission
 alias update='sudo apt update && sudo apt dist-upgrade && sudo apt autoremove'
 alias top='htop 2>/dev/null || top'
 alias ipy='ipython --no-banner --no-confirm-exit'
+alias ipy3='ipython3 --no-banner --no-confirm-exit'
 alias usshfs='for host in $(grep "Host " ~/.ssh/config | cut -d " " -f 2); do fusermount -u /tmp/sshfs/$host 2>/dev/null; unlink $host 2>/dev/null; rmdir /tmp/sshfs/$host 2>/dev/null; done'
 alias msshfs='usshfs; mkdir -p /tmp/sshfs; for host in $(grep "Host " ~/.ssh/config | cut -d " " -f 2); do mkdir -p /tmp/sshfs/$host; ( ( sshfs $host: /tmp/sshfs/$host 2>/dev/null && ln -s /tmp/sshfs/$host $host ) & ); done'
 alias rscp='rsync -avz --partial --progress -e ssh'
