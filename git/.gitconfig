@@ -11,6 +11,8 @@
     discard = checkout --
     unstage = reset HEAD
     fa = fetch --all
+    fap = pull --all
+    uncommit = reset --soft HEAD~
 [color]
     ui = true
 [log]
