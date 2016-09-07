@@ -138,6 +138,7 @@ function chhost() {
     sudo sed -i '/127.0.1.1/d' /etc/hosts
     echo "127.0.1.1 $hostname" | sudo tee -a /etc/hosts >/dev/null
     echo "$hostname" | sudo tee /etc/hostname >/dev/null
+    sudo hostname "$hostname"
 }
 
 alias -g today='$(date +%F)'
