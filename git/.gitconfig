@@ -13,6 +13,8 @@
     fa = fetch --all
     fap = pull --all
     uncommit = reset --soft HEAD~
+    info = config --get remote.origin.url
+    whoami = config --get-regexp "user.*"
 [color]
     ui = true
 [log]
