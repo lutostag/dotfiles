@@ -20,5 +20,4 @@ cd ..; rm -fr temp
 apt-add-repository -y ppa:qos/pulseaudio-dlna
 add-apt-repository -y ppa:atareao/atareao
 apt-get update
-apt-get install -y redshift-gtk variety chromium-browser pepperflashplugin-nonfree lxd vlc mpv caffeine pulseaudio-dlna touchpad-indicator
-
+apt-get install -y network-manager-openvpn-gnome redshift-gtk variety chromium-browser pepperflashplugin-nonfree lxd vlc mpv caffeine pulseaudio-dlna touchpad-indicator
