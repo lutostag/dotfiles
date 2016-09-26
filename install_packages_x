@@ -1,0 +1,24 @@
+#!/bin/sh
+./install_packages
+
+mkdir temp; cd temp;
+
+wget https://bitbucket.org/melek/dmenu2/get/36cb94a16edf.zip
+unzip 36cb94a16edf.zip
+cd melek-dmenu2-36cb94a16edf
+apt-get install -y libx11-dev libxft-dev
+make install clean
+cd ..
+
+git clone https://github.com/lutostag/yboomy.git
+cd yboomy
+make install
+cd ..
+cd ..; rm -fr temp
+
+
+apt-add-repository -y ppa:qos/pulseaudio-dlna
+add-apt-repository -y ppa:atareao/atareao
+apt-get update
+apt-get install -y redshift-gtk variety chromium-browser pepperflashplugin-nonfree lxd vlc mpv caffeine pulseaudio-dlna touchpad-indicator
+
