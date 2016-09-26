@@ -43,7 +43,7 @@ ssh-add ~/.ssh/id_rsa 2>/dev/null
 
 touch ~/.z
 source ~/.config/z/z.sh 2>/dev/null
-source ~/src/lxd-cmd/lxd-cmd.sh 2>/dev/null
+source ~/src/lxc-cmd/lxd-cmd.sh 2>/dev/null
 source ~/.config/git_prompt.zsh 2>/dev/null
 
 function mk {
