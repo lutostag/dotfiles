@@ -54,8 +54,8 @@ if &t_Co > 2 || has("gui_running")
   set t_Co=256
   let g:rehash256 = 1
   colorscheme molokai
-  hi Normal guibg=None ctermbg=None ctermfg=white
-  hi NonText guibg=None ctermbg=None
+  hi Normal guibg=NONE ctermbg=NONE ctermfg=white
+  hi NonText guibg=NONE ctermbg=NONE
   set hlsearch
 endif
 
