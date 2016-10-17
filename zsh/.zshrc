@@ -12,6 +12,8 @@ autoload -Uz compinit colors zmv
 compinit
 colors
 
+zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(..)'
+
 export EDITOR=vim
 export GPGKEY=1F3EB44A
 export DEBFULLNAME="Greg Lutostanski"
@@ -112,8 +114,8 @@ function work-autocomplete {
 alias ls='ls -xFX --group-directories-first --color=auto' # -C
 
 function chpwd() {
-start=$'\E[101m'
-finish=$'\E[0m'
+    start=$'\E[101m'
+    finish=$'\E[0m'
     emulate -L zsh
     ls -xw $(($(tput cols) - 1)) --color=always | sed -n '1h; 2H; 3{x; s/^\(.*\)$/\1 '"$start…$finish"'/; p; q}; ${x; p}'
     # print -S " $(echo \# $(pwd))"
@@ -123,6 +125,7 @@ compctl -K work-autocomplete work
 
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
+bindkey '^[^M' self-insert-unmeta
 
 function browse-or-vim() {
     if [[ -d $1 ]]
@@ -155,7 +158,7 @@ alias grep='grep --color=auto'
 alias cmu='sshfs home:/media/External/Music/ccmixter ~/music/ccmixter 2>/dev/null; cmus'
 alias irc='auscult -a 127.0.0.1:1234 2>/dev/null & tmux rename-window irc; ssh home -R 127.0.0.1:1234:127.0.0.1:1234 -t "TERM=screen-256color; tmux -q2u attach -t irc || tmux -2u new-session -s irc irssi"; tmux set-window-option -q automatic-rename "on" >/dev/null'
 alias transmission='ssh home -t "bash -ic transmission" || bash -ic transmission'
-alias update='sudo apt update && sudo apt dist-upgrade && sudo apt autoremove'
+alias update='sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y'
 alias top='htop 2>/dev/null || top'
 alias ipy='ipython --no-banner --no-confirm-exit'
 alias ipy3='ipython3 --no-banner --no-confirm-exit'
