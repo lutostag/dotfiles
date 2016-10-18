@@ -166,6 +166,7 @@ alias usshfs='for host in $(grep "Host " ~/.ssh/config | cut -d " " -f 2); do fu
 alias msshfs='usshfs; mkdir -p /tmp/sshfs; for host in $(grep "Host " ~/.ssh/config | cut -d " " -f 2); do mkdir -p /tmp/sshfs/$host; ( ( sshfs $host: /tmp/sshfs/$host 2>/dev/null && ln -s /tmp/sshfs/$host $host ) & ); done'
 alias rscp='rsync -avz --partial --progress -e ssh'
 alias reconnect='killall -HUP autossh'
+alias add-apt-key='sudo apt-key adv --keyserver keyserver.ubuntu.com --recv'
 
 
 hcolor=$(($(printf '%d' "0x$(hostname | md5sum | sed 's/\(.\{8\}\).*/\1/')") % 256))
