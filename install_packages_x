@@ -7,6 +7,7 @@ wget https://bitbucket.org/melek/dmenu2/get/36cb94a16edf.zip
 unzip 36cb94a16edf.zip
 cd melek-dmenu2-36cb94a16edf
 apt-get install -y libx11-dev libxft-dev
+sed -i 's/^XINERAMA/#XINERAMA/' config.mk
 make install clean
 cd ..
 
@@ -18,6 +19,5 @@ cd ..; rm -fr temp
 
 
 apt-add-repository -y ppa:qos/pulseaudio-dlna
-add-apt-repository -y ppa:atareao/atareao
 apt-get update
-apt-get install -y network-manager-openvpn-gnome redshift-gtk variety chromium-browser pepperflashplugin-nonfree lxd vlc mpv caffeine pulseaudio-dlna touchpad-indicator
+apt-get install -y network-manager-openvpn-gnome redshift-gtk variety chromium-browser pepperflashplugin-nonfree lxd vlc mpv caffeine pulseaudio-dlna compiz-plugins compizconfig-settings-manager
