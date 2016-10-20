@@ -1,5 +1,6 @@
 #!/bin/sh
 ./install_packages
+apt install -y golang
 
 mkdir temp; cd temp;
 
@@ -15,8 +16,13 @@ git clone https://github.com/lutostag/yboomy.git
 cd yboomy
 make install
 cd ..
-cd ..; rm -fr temp
 
+git clone https://github.com/lutostag/auscult.git
+cd auscult
+go build
+cp auscult /usr/local/bin/
+cd ..
+cd ..; rm -fr temp
 
 apt-add-repository -y ppa:qos/pulseaudio-dlna
 apt-get update
