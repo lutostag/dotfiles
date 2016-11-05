@@ -147,7 +147,7 @@ s0_trigger_min_down_left = Disabled
 s0_trigger_min_down_right = Disabled
 
 [commands]
-s0_command0 = yboomy_run -dim 0.40 -h 24 -fn 'ubuntu-11:bold' -sb '#772953' -uc '#dd4814' -uh 2 -nb '#3C3B36'
+s0_command0 = yboomy_run -f -p '$>' -dim 0.40 -h 24 -fn 'ubuntu-11:bold' -sb '#772953' -uc '#dd4814' -uh 2 -nb '#3C3B36'
 s0_command1 = gnome-terminal --maximize
 s0_command2 = 
 s0_command3 = 
