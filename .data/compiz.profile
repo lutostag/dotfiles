@@ -147,7 +147,7 @@ s0_trigger_min_down_left = Disabled
 s0_trigger_min_down_right = Disabled
 
 [commands]
-s0_command0 = yboomy_run -f -p '$>' -dim 0.40 -h 24 -fn 'ubuntu-11:bold' -sb '#772953' -uc '#dd4814' -uh 2 -nb '#3C3B36'
+s0_command0 = yboomy_run -f -p '' -dim 0.40 -h 24 -fn 'Ubuntu:style=Bold' -sb '#772953' -uc '#dd4814' -uh 2 -nb '#3C3B36'
 s0_command1 = gnome-terminal --maximize
 s0_command2 = 
 s0_command3 = 
@@ -1556,7 +1556,7 @@ s0_bottom_images = compizcap.png;
 
 [scale]
 s0_spacing = 20
-s0_x_offset = 64
+s0_x_offset = 0
 s0_y_offset = 0
 s0_y_bottom_offset = 0
 s0_speed = 5.000000
