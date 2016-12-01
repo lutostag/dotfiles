@@ -147,7 +147,7 @@ s0_trigger_min_down_left = Disabled
 s0_trigger_min_down_right = Disabled
 
 [commands]
-s0_command0 = yboomy_run -f -p '' -dim 0.40 -h 24 -fn 'Ubuntu:style=Bold' -sb '#772953' -uc '#dd4814' -uh 2 -nb '#3C3B36'
+s0_command0 = yboomy_run -f -p '' -h 24 -fn 'Ubuntu:style=Bold' -sb '#772953' -sf '#ffffff' -uc '#e95420' -uh 2 -nb '#3c3b37' -nf '#dfdbd2'
 s0_command1 = gnome-terminal --maximize
 s0_command2 = 
 s0_command3 = 
@@ -1458,7 +1458,7 @@ s0_vsize = 3
 [animation]
 s0_open_effects = animation:Glide 2;animation:Fade;animation:Fade;
 s0_open_durations = 120;80;80;
-s0_open_matches = ((type=Normal | Unknown) | name=sun-awt-X11-XFramePeer | name=sun-awt-X11-XDialogPeer) & !(role=toolTipTip | role=qtooltip_label) & !(type=Normal & override_redirect=1) & !(name=gnome-screensaver);((type=Menu | PopupMenu | DropdownMenu | Combo | Dialog | ModalDialog | Normal) & !(class=\.exe$));(type=Tooltip | Notification | Utility) & !(name=compiz) & !(title=notify-osd);
+s0_open_matches = ((type=Normal | Unknown) | name=sun-awt-X11-XFramePeer | name=sun-awt-X11-XDialogPeer) & !(role=toolTipTip | role=qtooltip_label) & !(type=Normal & override_redirect=1) & !(name=gnome-screensaver) &!(class=Dmenu);((type=Menu | PopupMenu | DropdownMenu | Combo | Dialog | ModalDialog | Normal) & !(class=\.exe$));(type=Tooltip | Notification | Utility) & !(name=compiz) & !(title=notify-osd);
 s0_open_options = ;;;
 s0_open_random_effects = 
 s0_close_effects = animation:Glide 2;animation:Fade;animation:Fade;
