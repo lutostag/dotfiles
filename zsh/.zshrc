@@ -8,9 +8,12 @@ disable -p '#'
 
 zstyle :compinstall filename '/home/lutostag/.zshrc'
 
-autoload -Uz compinit colors zmv
+autoload -Uz bashcompinit compinit colors zmv
+bashcompinit
 compinit
 colors
+export -f _have() { which $@ >/dev/null }
+source /usr/share/bash-completion/completions/lxc
 
 zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(..)'
 
@@ -23,7 +26,7 @@ export GOPATH=~/src/go
 
 if [ -z $SETPATH ]
 then
-    export PATH=$PATH:$GOPATH/bin
+    export PATH=$PATH:/usr/lib/go-1.7/bin:$GOPATH/bin
     export PYTHONPATH=$(ls -1d ~/work/src/*/*/trunk/ 2>/dev/null | tr '\n' ':')
     export PYTHONDONTWRITEBYTECODE=True
     export SETPATH=1
@@ -45,7 +48,6 @@ ssh-add ~/.ssh/id_rsa 2>/dev/null
 
 touch ~/.z
 source ~/.config/z/z.sh 2>/dev/null
-source ~/.config/lxc-cmd/lxd-cmd.sh 2>/dev/null
 source ~/.config/git_prompt.zsh 2>/dev/null
 
 function mk {
@@ -71,7 +73,6 @@ function pig {
 }
 
 function ssh {
-    lxd-ssh
     if [ "$#" == "1" ];
     then
         found=0
@@ -143,6 +144,14 @@ function chhost() {
     echo "$hostname" | sudo tee /etc/hostname >/dev/null
     sudo hostname "$hostname"
 }
+
+function lmux() {
+    lxc exec $1 -- sh -ic 'WHO=$(awk  -F":" "\$3>999&&\$1!=\"nobody\" {print \$1; exit 1}" /etc/passwd || getent passwd 0 | sed "s_:.*__"); su -c "cd ~; script -qfc \"tmux attach\" /dev/null" $WHO'
+}
+function lmux-autocomplete {
+    reply=( $(lxc list -c "n" | grep -v '^+' | tr -d '| ' | tail -n +2) )
+}
+compctl -K lmux-autocomplete lmux
 
 alias -g today='$(date +%F)'
 alias p='pig '
