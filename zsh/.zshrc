@@ -13,7 +13,7 @@ bashcompinit
 compinit
 colors
 export -f _have() { which $@ >/dev/null }
-source /usr/share/bash-completion/completions/lxc
+source /usr/share/bash-completion/completions/lxc 2>/dev/null
 
 zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(..)'
 
@@ -23,6 +23,7 @@ export DEBFULLNAME="Greg Lutostanski"
 export DEBEMAIL="gregory.lutostanski@canonical.com"
 export TERMINAL=gnome-terminal
 export GOPATH=~/src/go
+export LXD_DIR=/var/snap/lxd/common/lxd
 
 if [ -z $SETPATH ]
 then
@@ -146,7 +147,7 @@ function chhost() {
 }
 
 function lmux() {
-    lxc exec $1 -- sh -ic 'WHO=$(awk  -F":" "\$3>999&&\$1!=\"nobody\" {print \$1; exit 1}" /etc/passwd || getent passwd 0 | sed "s_:.*__"); su -c "cd ~; script -qfc \"tmux attach\" /dev/null" $WHO'
+    lxc exec $1 -- sh -ic 'WHO=$(awk  -F":" "\$3>999&&\$1!=\"nobody\" {print \$1; exit 1}" /etc/passwd || getent passwd 0 | sed "s_:.*__"); su -c "cd ~; script -qfc \"tmux attach || tmux\" /dev/null" $WHO'
 }
 function lmux-autocomplete {
     reply=( $(lxc list -c "n" | grep -v '^+' | tr -d '| ' | tail -n +2) )
