@@ -166,7 +166,7 @@ alias include_tags='ctags -f ~/.cache/ctags/include -R /usr/include'
 alias tag='mkdir -p ~/.cache/ctags; ctags -f ~/.cache/ctags/src -R ~/work/src/*/*/trunk'
 alias grep='grep --color=auto'
 alias cmu='sshfs home:/media/External/Music/ccmixter ~/music/ccmixter 2>/dev/null; cmus'
-alias irc='auscult -a 127.0.0.1:1234 2>/dev/null & tmux rename-window irc; ssh home -R 127.0.0.1:1234:127.0.0.1:1234 -t "TERM=screen-256color; tmux -q2u attach -t irc || tmux -2u new-session -s irc irssi"; tmux set-window-option -q automatic-rename "on" >/dev/null'
+alias irc='auscult -a 127.0.0.1:1234 2>/dev/null & tmux rename-window irc; ssh home -R 127.0.0.1:1234:127.0.0.1:1234 -t "TERM=screen-256color; tmux -q2 attach -t irc || tmux -2 new-session -s irc irssi"; tmux set-window-option -q automatic-rename "on" >/dev/null'
 alias transmission='ssh home -t "bash -ic transmission" || bash -ic transmission'
 alias update='sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y'
 alias top='htop 2>/dev/null || top'
@@ -209,11 +209,11 @@ tmux source-file ~/.tmux.conf 2>/dev/null
 
 if [ -n $SSH_CLIENT -a "$NOTMUX" != "1" ]
 then
-    tmux -2u attach 2>/dev/null || tmux -2u 2>/dev/null && exit
+    tmux -2 attach 2>/dev/null || tmux -2 2>/dev/null && exit
 elif [ $TERM == "xterm-256color" -a -z $TMUX ]
 then
     TERM=screen-256color
-    tmux -2u attach 2>/dev/null || tmux -2u 2>/dev/null && exit;
+    tmux -2 attach 2>/dev/null || tmux -2 2>/dev/null && exit;
 elif [ $TERM == "linux" -a `pgrep -c startx` -lt 1 ]
 then
     startx 2>/dev/null
