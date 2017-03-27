@@ -202,7 +202,7 @@ PROMPT="${PROMPT_VALUE}$ "
 
 cat > ~/.tmux.extra.conf <<EOF
 set-option -qg status-bg $hcolor
-set -qg status-left "#{?client_prefix,#[bg=$ucolor],#[bg=$hcolor]}#[fg=black][#S]"
+set -qg status-left "#{?client_prefix,#[bg=$ucolor],#[bg=$hcolor]}#[fg=black][#S]#[bg=$hcolor] "
 EOF
 
 tmux source-file ~/.tmux.conf 2>/dev/null
