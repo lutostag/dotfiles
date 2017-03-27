@@ -24,6 +24,8 @@ export DEBEMAIL="gregory.lutostanski@canonical.com"
 export TERMINAL=gnome-terminal
 export GOPATH=~/src/go
 export LXD_DIR=/var/snap/lxd/common/lxd
+export NVM_DIR="$HOME/.nvm"
+export AUTOSSH_PORT=0
 
 if [ -z $SETPATH ]
 then
@@ -40,8 +42,6 @@ export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
 export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
-
-export AUTOSSH_PORT=0
 
 stty stop undef
 stty start undef
@@ -154,7 +154,6 @@ function lmux-autocomplete {
 }
 compctl -K lmux-autocomplete lmux
 
-alias -g today='$(date +%F)'
 alias p='pig '
 alias b='bzr'
 alias g='git'
@@ -165,7 +164,6 @@ alias zmv='noglob zmv -W'
 alias include_tags='ctags -f ~/.cache/ctags/include -R /usr/include'
 alias tag='mkdir -p ~/.cache/ctags; ctags -f ~/.cache/ctags/src -R ~/work/src/*/*/trunk'
 alias grep='grep --color=auto'
-alias cmu='sshfs home:/media/External/Music/ccmixter ~/music/ccmixter 2>/dev/null; cmus'
 alias irc='auscult -a 127.0.0.1:1234 2>/dev/null & tmux rename-window irc; ssh home -R 127.0.0.1:1234:127.0.0.1:1234 -t "TERM=screen-256color; tmux -q2 attach -t irc || tmux -2 new-session -s irc irssi"; tmux set-window-option -q automatic-rename "on" >/dev/null'
 alias transmission='ssh home -t "bash -ic transmission" || bash -ic transmission'
 alias update='sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y'
@@ -177,10 +175,12 @@ alias msshfs='usshfs; mkdir -p /tmp/sshfs; for host in $(grep "Host " ~/.ssh/con
 alias rscp='rsync -avzbP --inplace -e ssh'
 alias reconnect='killall -HUP autossh'
 alias add-apt-key='sudo apt-key adv --keyserver keyserver.ubuntu.com --recv'
+alias yarn='~/.config/yarn/global/node_modules/.bin/yarn'
+alias nvms='[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
 
 
-hcolor=$(($(printf '%d' "0x$(hostname | md5sum | sed 's/\(.\{8\}\).*/\1/')") % 256))
-ucolor=$(($(printf '%d' "0x$(whoami | md5sum | sed 's/\(.\{8\}\).*/\1/')") % 256))
+hcolor=$(($(printf '%d' "0x$(hostname | md5sum | sed 's/\(.\{8\}\).*/\1/')") % 204 + 27))
+ucolor=$(($(printf '%d' "0x$(whoami | md5sum | sed 's/\(.\{8\}\).*/\1/')") % 204 + 27))
 if [ $(hostname) == "cia" ]; then
     hcolor='4' # blue
 elif [ $(hostname) == "fbi" ]; then

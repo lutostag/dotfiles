@@ -36,6 +36,10 @@ set completeopt-=preview
 set tags=$HOME/.cache/ctags/src,$HOME/.cache/ctags/include
 set switchbuf=useopen
 set nofoldenable
+set clipboard=unnamedplus
+
+autocmd Filetype python setlocal ts=4 sts=4 sw=4
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 let g:autoswap_detect_tmux = 1
 let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,.bzr"
@@ -81,6 +85,3 @@ if has("autocmd")
 else
   set autoindent
 endif " has("autocmd")
-
-vmap <C-c> y:call system("xclip -i -selection clipboard",getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
-nmap <C-y> <C-o>

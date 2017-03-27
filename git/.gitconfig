@@ -15,6 +15,7 @@
     uncommit = reset --soft HEAD~
     info = config --get remote.origin.url
     whoami = config --get-regexp "user.*"
+    scrub = clean -xdf
 [color]
     ui = true
 [log]
