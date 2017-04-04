@@ -43,6 +43,7 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 let g:autoswap_detect_tmux = 1
 let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,.bzr"
+let g:jedi#force_py_version = 3
 let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 2
 let g:jedi#completions_command = "<C-n>"
