@@ -32,26 +32,22 @@ set shiftwidth=4
 set statusline=[FILE=%f]%r%h%w%=\ %{fugitive#statusline()}\ \ \ [TYPE=%Y]\ \ \ [POS=%03l(%L),%03v]\ \ \ [%p%%]
 set laststatus=2
 set completeopt-=preview
-" set omnifunc=syntaxcomplete#Complete
 set tags=$HOME/.cache/ctags/src,$HOME/.cache/ctags/include
 set switchbuf=useopen
 set nofoldenable
 set clipboard=unnamedplus
+set mouse=a
 
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 let g:autoswap_detect_tmux = 1
+autocmd! BufWritePost * Neomake
 let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,.bzr"
 let g:jedi#force_py_version = 3
-let g:jedi#popup_on_dot = 0
-let g:jedi#show_call_signatures = 2
-let g:jedi#completions_command = "<C-n>"
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_enable_signs = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+let g:jedi#completions_enabled = 0
+let g:jedi#show_call_signatures = 1
+let g:jedi#show_call_signatures_delay = 0
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
@@ -64,25 +60,8 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-" Only do this part when compiled with support for autocommands.
 if has("autocmd")
-  filetype plugin indent on
-  
-  autocmd InsertLeave * se nocul
-  autocmd InsertEnter * se cul
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  autocmd WinEnter *
-    \ if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix" |
-    \ q |
-    \ endif
-else
-  set autoindent
-endif " has("autocmd")
+filetype plugin indent on
