@@ -177,6 +177,8 @@ alias reconnect='killall -HUP autossh'
 alias add-apt-key='sudo apt-key adv --keyserver keyserver.ubuntu.com --recv'
 alias yarn='~/.config/yarn/global/node_modules/.bin/yarn'
 alias nvms='[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
+alias vpn='sshuttle -r lutostag@lutostag.ddns.net 10.17.173.0/24 192.168.42.1/24'
+alias groot='cd $(git rev-parse --show-toplevel)'
 
 
 hcolor=$(($(printf '%d' "0x$(hostname | md5sum | sed 's/\(.\{8\}\).*/\1/')") % 204 + 27))
