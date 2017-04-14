@@ -177,7 +177,7 @@ alias reconnect='killall -HUP autossh'
 alias add-apt-key='sudo apt-key adv --keyserver keyserver.ubuntu.com --recv'
 alias yarn='~/.config/yarn/global/node_modules/.bin/yarn'
 alias nvms='[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
-alias vpn='sshuttle -r lutostag@lutostag.ddns.net 10.17.173.0/24 192.168.42.1/24'
+alias vpn='sshuttle -r lutostag@lutostag.ddns.net 10.226.118.0/24 192.168.42.1/24'
 alias groot='cd $(git rev-parse --show-toplevel)'
 
 
