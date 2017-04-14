@@ -16,6 +16,7 @@
     info = config --get remote.origin.url
     whoami = config --get-regexp "user.*"
     scrub = clean -xdf
+    remotes = remote -v
 [color]
     ui = true
 [log]
