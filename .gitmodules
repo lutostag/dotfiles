@@ -13,9 +13,6 @@
 [submodule "vim/.config/vim/bundle/vim-rsi"]
 	path = vim/.config/vim/bundle/vim-rsi
 	url = https://github.com/tpope/vim-rsi.git
-[submodule "vim/.config/vim/bundle/vim-virtualenv"]
-	path = vim/.config/vim/bundle/vim-virtualenv
-	url = https://github.com/jmcantrell/vim-virtualenv.git
 [submodule "zsh/.config/z"]
 	path = zsh/.config/z
 	url = https://github.com/rupa/z.git

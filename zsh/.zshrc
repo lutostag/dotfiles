@@ -30,7 +30,7 @@ export AUTOSSH_PORT=0
 if [ -z $SETPATH ]
 then
     export PATH=$PATH:/usr/lib/go-1.7/bin:$GOPATH/bin
-    export PYTHONPATH=$(ls -1d ~/work/src/*/*/trunk/ 2>/dev/null | tr '\n' ':')
+    export PYTHONPATH=$(ls -q1d ~/work/src/*/*/trunk/ 2>/dev/null | tr '\n' ':')
     export PYTHONDONTWRITEBYTECODE=True
     export SETPATH=1
 fi
