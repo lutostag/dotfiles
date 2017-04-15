@@ -31,9 +31,12 @@
 [submodule "vim/.config/vim/bundle/neomake"]
 	path = vim/.config/vim/bundle/neomake
 	url = https://github.com/neomake/neomake.git
-[submodule "vim/.config/vim/bundle/YouCompleteMe"]
-	path = vim/.config/vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "vim/.config/vim/bundle/matchit"]
 	path = vim/.config/vim/bundle/matchit
 	url = https://github.com/benjifisher/matchit.zip.git
+[submodule "vim/.config/vim/bundle/deoplete"]
+	path = vim/.config/vim/bundle/deoplete
+	url = https://github.com/Shougo/deoplete.nvim.git
+[submodule "vim/.config/vim/bundle/deoplete-jedi"]
+	path = vim/.config/vim/bundle/deoplete-jedi
+	url = https://github.com/zchee/deoplete-jedi

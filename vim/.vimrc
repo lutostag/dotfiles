@@ -42,12 +42,18 @@ autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 let g:autoswap_detect_tmux = 1
-autocmd! BufWritePost * Neomake
 let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,.bzr"
 let g:jedi#force_py_version = 3
 let g:jedi#completions_enabled = 0
 let g:jedi#show_call_signatures = 1
 let g:jedi#show_call_signatures_delay = 0
+let g:jedi#smart_auto_mappings = 0
+let g:deoplete#enable_at_startup = 1
+
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<S-tab>"
+autocmd! BufWritePost * Neomake
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
