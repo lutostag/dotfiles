@@ -1,3 +1,10 @@
 #!/bin/sh
 
-apt-get install -y stow git tmux zsh vim bzr python3-pip ranger exuberant-ctags ipython sshfs rsync autossh python-pygments irssi xclip ipython3
+apt-get install -y software-properties-common
+add-apt-repository -y ppa:neovim-ppa/stable
+apt-get update
+apt-get install -y neovim
+
+apt-get install -y stow git tmux zsh vim bzr python3-pip ranger exuberant-ctags ipython sshfs rsync autossh python-pygments irssi xclip ipython ipython3
+
+pip3 install neovim

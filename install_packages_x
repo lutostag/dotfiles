@@ -26,4 +26,6 @@ cd ..; rm -fr temp
 
 apt-add-repository -y ppa:qos/pulseaudio-dlna
 apt-get update
-apt-get install -y network-manager-openvpn-gnome redshift-gtk variety chromium-browser pepperflashplugin-nonfree lxd vlc mpv caffeine pulseaudio-dlna compiz-plugins compizconfig-settings-manager
+apt-get install -y network-manager-openvpn-gnome redshift-gtk variety chromium-browser pepperflashplugin-nonfree vlc mpv caffeine pulseaudio-dlna compiz-plugins compizconfig-settings-manager
+
+snap install lxd
