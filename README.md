@@ -1,8 +1,8 @@
-Config files for some of my day-to-day usage programs. A list of programs that I think are useful follows as well.
+Config files for some of my day-to-day usage programs. They are stored in per-program directories via gnu stow.
 
 Install by:
 ```
-sudo apt install -y git stow
+sudo apt install -y git
 git clone https://github.com/lutostag/dotfiles.git .dotfiles
 cd .dotfiles
 sudo ./install_packages

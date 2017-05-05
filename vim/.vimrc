@@ -49,6 +49,7 @@ let g:jedi#show_call_signatures = 1
 let g:jedi#show_call_signatures_delay = 0
 let g:jedi#smart_auto_mappings = 0
 let g:deoplete#enable_at_startup = 1
+let g:neomake_javascript_enabled_makers = ['standard']
 
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<S-tab>"
