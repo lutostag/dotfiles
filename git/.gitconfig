@@ -24,6 +24,6 @@
 [url "git+ssh://lutostag@git.launchpad.net/"]
     insteadof = lp:
 [url "git@github.com:"]
-    insteadof = https://github.com/
+    pushinsteadof = https://github.com/
 [push]
     default = simple
