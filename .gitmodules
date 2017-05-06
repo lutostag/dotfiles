@@ -1,42 +1,9 @@
-[submodule "vim/.config/vim/bundle/vim-autoswap"]
-	path = vim/.config/vim/bundle/vim-autoswap
-	url = https://github.com/gioele/vim-autoswap.git
-[submodule "vim/.config/vim/bundle/vcscommand"]
-	path = vim/.config/vim/bundle/vcscommand
-	url = git://repo.or.cz/vcscommand
-[submodule "vim/.config/vim/bundle/vim-dirdiff"]
-	path = vim/.config/vim/bundle/vim-dirdiff
-	url = https://github.com/junkblocker/vim-dirdiff.git
-[submodule "vim/.config/vim/bundle/vim-fugitive"]
-	path = vim/.config/vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/.config/vim/bundle/vim-rsi"]
-	path = vim/.config/vim/bundle/vim-rsi
-	url = https://github.com/tpope/vim-rsi.git
 [submodule "zsh/.config/z"]
 	path = zsh/.config/z
 	url = https://github.com/rupa/z.git
 [submodule "zsh/.config/lxc-cmd"]
 	path = zsh/.config/lxc-cmd
 	url = https://github.com/lutostag/lxc-cmd.git
-[submodule "vim/.config/vim/bundle/patchreview-vim"]
-	path = vim/.config/vim/bundle/patchreview-vim
-	url = https://github.com/junkblocker/patchreview-vim.git
-[submodule "vim/.config/vim/bundle/jedi-vim"]
-	path = vim/.config/vim/bundle/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim.git
-[submodule "vim/.config/vim/bundle/vim-unimpaired"]
-	path = vim/.config/vim/bundle/vim-unimpaired
-	url = https://github.com/tpope/vim-unimpaired.git
-[submodule "vim/.config/vim/bundle/neomake"]
-	path = vim/.config/vim/bundle/neomake
-	url = https://github.com/neomake/neomake.git
-[submodule "vim/.config/vim/bundle/matchit"]
-	path = vim/.config/vim/bundle/matchit
-	url = https://github.com/benjifisher/matchit.zip.git
-[submodule "vim/.config/vim/bundle/deoplete"]
-	path = vim/.config/vim/bundle/deoplete
-	url = https://github.com/Shougo/deoplete.nvim.git
-[submodule "vim/.config/vim/bundle/deoplete-jedi"]
-	path = vim/.config/vim/bundle/deoplete-jedi
-	url = https://github.com/zchee/deoplete-jedi
+[submodule "vim/.config/vim/autoload"]
+	path = vim/.config/vim/autoload
+	url = https://github.com/junegunn/vim-plug.git

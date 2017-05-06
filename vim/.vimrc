@@ -16,7 +16,20 @@ set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 set backup
 
-execute pathogen#infect()
+call plug#begin('~/.config/nvim/plugs')
+Plug 'zchee/deoplete-jedi'
+Plug 'davidhalter/jedi-vim'
+Plug 'benjifisher/matchit.zip'
+Plug 'neomake/neomake'
+Plug 'junkblocker/patchreview-vim'
+Plug 'git://repo.or.cz/vcscommand'
+Plug 'gioele/vim-autoswap'
+Plug 'junkblocker/vim-dirdiff'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-unimpaired'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+call plug#end()
 
 set backspace=indent,eol,start
 set whichwrap=<,>,h,l,[,]
