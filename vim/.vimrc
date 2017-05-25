@@ -72,6 +72,13 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<S-tab>"
 autocmd! BufWritePost * Neomake
 
+augroup neomake_signs_colors
+    au!
+    autocmd ColorScheme *
+        \ hi NeomakeErrorSign ctermfg=160 ctermbg=235 |
+        \ hi NeomakeError ctermfg=160 cterm=bold
+augroup end
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")

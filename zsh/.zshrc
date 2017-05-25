@@ -178,6 +178,7 @@ alias add-apt-key='sudo apt-key adv --keyserver keyserver.ubuntu.com --recv'
 alias yarn='~/.config/yarn/global/node_modules/.bin/yarn'
 alias vpn='sshuttle -r lutostag@lutostag.ddns.net 10.226.118.0/24 192.168.42.1/24'
 alias groot='cd $(git rev-parse --show-toplevel)'
+alias script='NOTMUX=1 script'
 
 
 hcolor=$(($(printf '%d' "0x$(hostname | md5sum | sed 's/\(.\{8\}\).*/\1/')") % 204 + 27))
