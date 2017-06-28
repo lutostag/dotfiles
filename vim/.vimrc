@@ -32,6 +32,7 @@ Plug 'junkblocker/vim-dirdiff'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-unimpaired'
+Plug 'bfredl/nvim-ipy', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
