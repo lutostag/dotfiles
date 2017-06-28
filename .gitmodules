@@ -7,3 +7,6 @@
 [submodule "vim/.config/vim/autoload"]
 	path = vim/.config/vim/autoload
 	url = https://github.com/junegunn/vim-plug.git
+[submodule "zsh/.config/up.zsh"]
+	path = zsh/.config/up.zsh
+	url = https://github.com/peterhurford/up.zsh.git
