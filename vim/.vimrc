@@ -32,6 +32,7 @@ Plug 'junkblocker/vim-dirdiff'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-unimpaired'
+Plug 'leafgarland/typescript-vim'
 Plug 'bfredl/nvim-ipy', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
@@ -58,6 +59,7 @@ set mouse=a
 
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
 
 let g:autoswap_detect_tmux = 1
 let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,.bzr"
@@ -68,6 +70,7 @@ let g:jedi#show_call_signatures_delay = 0
 let g:jedi#smart_auto_mappings = 0
 let g:deoplete#enable_at_startup = 1
 let g:neomake_javascript_enabled_makers = ['standard']
+let g:neomake_python_enabled_makers = ['flake8']
 
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<S-tab>"
