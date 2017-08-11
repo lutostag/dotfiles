@@ -35,6 +35,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'leafgarland/typescript-vim'
 Plug 'bfredl/nvim-ipy', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 call plug#end()
 
 set backspace=indent,eol,start
