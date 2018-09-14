@@ -155,6 +155,10 @@ function lmux-autocomplete {
 }
 compctl -K lmux-autocomplete lmux
 
+function mkvirtualenv {
+    virtualenv -p python3 --system-site-packages ~/.virtualenvs/"$@"
+}
+
 alias p='pig '
 alias b='bzr'
 alias g='git'
@@ -223,4 +227,10 @@ then
     exit;
 fi
 
+source <(kompose completion zsh)
+
 [ -s "$NVM_DIR/nvm-quick.sh" ] && . "$NVM_DIR/nvm-quick.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
