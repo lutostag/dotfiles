@@ -1,6 +1,6 @@
 [user]
     name = Greg Lutostanski
-    email = gregory.lutostanski@canonical.com
+    email = greg.lutostanski@mobilityhouse.com
 [alias]
     graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit --date=relative --all
     diffc = diff --cached
@@ -24,6 +24,11 @@
 [url "git+ssh://lutostag@git.launchpad.net/"]
     insteadof = lp:
 [url "git@github.com:"]
-    pushinsteadof = https://github.com/
+    insteadof = https://github.com/
 [push]
     default = simple
+[pull]
+    rebase = true
+[rerere]
+    enabled = true
+    autoupdate = true
