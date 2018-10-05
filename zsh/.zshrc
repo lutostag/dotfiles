@@ -26,11 +26,13 @@ export GOPATH=~/src/go
 export LXD_DIR=/var/snap/lxd/common/lxd
 export NVM_DIR="$HOME/.nvm"
 export AUTOSSH_PORT=0
+export PYENV_ROOT="$HOME/.pyenv"
+export CARGO_ROOT="$HOME/.cargo"
 
 if [ -z $SETPATH ]
 then
-    export PATH=$PATH:/usr/lib/go-1.7/bin:$GOPATH/bin
-    export PYTHONPATH=$(ls -q1d ~/work/src/*/*/trunk/ 2>/dev/null | tr '\n' ':')
+    export PATH=$HOME/.bin:$CARGO_ROOT/bin:$PYENV_ROOT/bin:$PATH:/usr/lib/go-1.7/bin:$GOPATH/bin
+    # export PYTHONPATH=$(ls -q1d ~/work/src/*/*/trunk/ 2>/dev/null | tr '\n' ':')
     export PYTHONDONTWRITEBYTECODE=True
     export SETPATH=1
 fi
@@ -156,7 +158,7 @@ function lmux-autocomplete {
 compctl -K lmux-autocomplete lmux
 
 function mkvirtualenv {
-    virtualenv -p python3 --system-site-packages ~/.virtualenvs/"$@"
+    python3 -m venv ~/.virtualenvs/"$@"
 }
 
 alias p='pig '
@@ -227,10 +229,10 @@ then
     exit;
 fi
 
-source <(kompose completion zsh)
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use # This loads nvm
 
-[ -s "$NVM_DIR/nvm-quick.sh" ] && . "$NVM_DIR/nvm-quick.sh"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+alias node='unalias node ; unalias npm ; nvm use default ; node $@'
+alias npm='unalias node ; unalias npm ; nvm use default ; npm $@'
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(pyenv init -)"
