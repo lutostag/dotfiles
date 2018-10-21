@@ -21,22 +21,24 @@ if empty(glob('~/.config/nvim/plugs'))
 endif
 
 call plug#begin('~/.config/nvim/plugs')
-Plug 'zchee/deoplete-jedi'
-Plug 'davidhalter/jedi-vim'
 Plug 'benjifisher/matchit.zip'
-Plug 'neomake/neomake'
-Plug 'junkblocker/patchreview-vim'
-Plug 'vim-scripts/vcscommand.vim'
+Plug 'davidhalter/jedi-vim'
 Plug 'gioele/vim-autoswap'
+Plug 'junkblocker/patchreview-vim'
 Plug 'junkblocker/vim-dirdiff'
+Plug 'leafgarland/typescript-vim'
+Plug 'neomake/neomake'
+Plug 'racer-rust/vim-racer'
+Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-unimpaired'
-Plug 'leafgarland/typescript-vim'
+Plug 'vim-scripts/vcscommand.vim'
+Plug 'zchee/deoplete-jedi'
 Plug 'bfredl/nvim-ipy', { 'do': ':UpdateRemotePlugins' }
+Plug 'fatih/vim-go', {'tag': 'v1.18', 'do': ':GoInstallBinaries'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 call plug#end()
 
 set backspace=indent,eol,start
@@ -63,6 +65,7 @@ autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
 
+let g:python3_host_prog = "/usr/bin/python3"
 let g:autoswap_detect_tmux = 1
 let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,.bzr"
 let g:jedi#force_py_version = 3
