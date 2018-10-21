@@ -11,6 +11,11 @@ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer 
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 curl https://sh.rustup.rs -sSf | sh
 
+rustup toolchain add nightly
+rustup component add rustfmt-preview rust-docs clippy-preview 
+rustup target add wasm32-unknown-unknown
+
+cargo +nightly install racer
 cargo install tmux-hints
 cargo install ripgrep
 cargo install fd-find
