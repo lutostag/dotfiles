@@ -21,10 +21,12 @@
     ui = true
 [log]
     decorate = full
+[url "git@github.com:"]
+    pushinsteadof = https://github.com/
+[url "git@github.com:mobilityhouse/"]
+    insteadof = https://github.com/mobilityhouse/
 [url "git+ssh://lutostag@git.launchpad.net/"]
     insteadof = lp:
-[url "git@github.com:"]
-    insteadof = https://github.com/
 [push]
     default = simple
 [pull]
