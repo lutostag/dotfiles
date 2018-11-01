@@ -28,7 +28,7 @@
 [url "git+ssh://lutostag@git.launchpad.net/"]
     insteadof = lp:
 [push]
-    default = simple
+    default = current
 [pull]
     rebase = true
 [rerere]
