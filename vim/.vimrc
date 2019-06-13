@@ -76,6 +76,7 @@ let g:jedi#smart_auto_mappings = 0
 let g:deoplete#enable_at_startup = 1
 let g:neomake_javascript_enabled_makers = ['standard']
 let g:neomake_python_enabled_makers = ['flake8']
+let g:rustfmt_autosave = 1
 
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<S-tab>"
