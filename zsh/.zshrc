@@ -28,12 +28,12 @@ export NVM_DIR="$HOME/.nvm"
 export AUTOSSH_PORT=0
 export PYENV_ROOT="$HOME/.pyenv"
 export CARGO_ROOT="$HOME/.cargo"
+export PYTHONDONTWRITEBYTECODE=True
 
 if [ -z $SETPATH ]
 then
     export PATH=$HOME/.bin:$CARGO_ROOT/bin:$PYENV_ROOT/bin:$PATH:/usr/lib/go-1.7/bin:$GOPATH/bin
     # export PYTHONPATH=$(ls -q1d ~/work/src/*/*/trunk/ 2>/dev/null | tr '\n' ':')
-    export PYTHONDONTWRITEBYTECODE=True
     export SETPATH=1
 fi
 
@@ -173,7 +173,7 @@ alias tag='mkdir -p ~/.cache/ctags; ctags -f ~/.cache/ctags/src -R ~/work/src/*/
 alias grep='grep --color=auto'
 alias irc='auscult -a 127.0.0.1:1234 2>/dev/null & tmux rename-window irc; ssh home -R 127.0.0.1:1234:127.0.0.1:1234 -t "TERM=screen-256color; tmux -q2 attach -t irc || tmux -2 new-session -s irc irssi"; tmux set-window-option -q automatic-rename "on" >/dev/null'
 alias transmission='ssh home -t "bash -ic transmission" || bash -ic transmission'
-alias update='sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y'
+alias update='sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y && sudo ukuu --purge-old-kernels --yes && sudo ukuu --check --install-latest --yes'
 alias top='htop 2>/dev/null || top'
 alias ipy2='ipython --no-banner --no-confirm-exit'
 alias ipy='jupyter-console --no-confirm-exit'
@@ -182,7 +182,6 @@ alias msshfs='usshfs; mkdir -p /tmp/sshfs; for host in $(grep "Host " ~/.ssh/con
 alias rscp='rsync -avzbP --inplace -e ssh'
 alias reconnect='killall -HUP autossh'
 alias add-apt-key='sudo apt-key adv --keyserver keyserver.ubuntu.com --recv'
-alias yarn='~/.config/yarn/global/node_modules/.bin/yarn'
 alias vpn='sshuttle -r lutostag@lutostag.ddns.net 10.226.118.0/24 192.168.42.1/24'
 alias groot='cd $(git rev-parse --show-toplevel)'
 alias script='NOTMUX=1 script'
