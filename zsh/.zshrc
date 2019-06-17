@@ -201,8 +201,8 @@ elif [ $(whoami) == "ubuntu" ]; then
 elif [ $(whoami) == "root" ]; then
     ucolor='3' # yellow
 fi
-PROMPT_VALUE="%{%F{$ucolor}%B%}%n%{%b$reset_color%}@%F{$hcolor}%{%B%}%M%f%{%b$reset_color%}:%{$fg[yellow]%B%}%~%{%b$reset_color%}"
-PROMPT="${PROMPT_VALUE}$ "
+
+PROMPT="%{%B%F{$ucolor}%}%n%f%b@%{%B%F{$hcolor}%}%M%f%b:%B%F{yellow}%~%f%b$ "
 
 [[ $ucolor == $hcolor ]] && ucolor=$((($hcolor + 1) % 256))
 [[ $hcolor =~ "^[0-9]+$" ]] && hcolor=colour${hcolor}
