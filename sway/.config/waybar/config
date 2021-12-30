@@ -1,0 +1,80 @@
+{
+    "layer": "bottom",
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["tray", "pulseaudio", "idle_inhibitor", "custom/backsplash", "memory", "battery", "clock"],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "<b>{index}</b>  {icon}",
+        "format-icons": {
+            "featherpad": "",
+	    "firefox": "",
+	    "inkscape": "",
+	    "libreoffice": "",
+            "pcmanfm-qt": "",
+            "photoflare": "",
+            "Alacritty": "",
+            "zathura": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    }, 
+    "sway/window": {
+        "max-length": 108,
+    },
+    "tray": {
+        "icon-size": 22,
+        "spacing": 5,
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-bluetooth": "{icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": "",
+        }
+    },
+    "custom/backsplash": {
+        "format": "",
+	"tooltip": false,
+	"on-click": "$HOME/.bin/backspla.sh",
+    },
+    "memory": {
+        "interval": 10,
+        "format": "{}%  ",
+        "max-length": 10
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% {icon} ",
+        "format-discharging-warning": "{capacity}% {icon} ",
+        "format-discharging-critical": "{capacity}% {icon} ",
+	"format-icons": ["", "", "", "", ""],
+    },
+    "clock": {
+        "format": "{:%a %d %b %H:%M}",
+        "today-format": "<span foreground='black' background='white'><b>{}</b></span>",
+	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+}

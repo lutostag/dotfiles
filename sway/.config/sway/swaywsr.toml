@@ -1,0 +1,8 @@
+[aliases]
+"org.pwmt.zathura" = "zathura"
+"org.inkscape.Inkscape" = "inkscape"
+"libreoffice-writer" = "libreoffice"
+"libreoffice-startcenter" = "libreoffice"
+
+[general]
+separator = " "
